@@ -17,6 +17,9 @@ export const HeaderContainer = styled.div`
   img {
     ${tw`
       h-8
+      mr-7
     `}
   }
+
 `;
+

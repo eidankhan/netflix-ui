@@ -5,6 +5,7 @@ import tw, { styled } from "twin.macro";
 export const MoviesContainer = styled.div`
   ${tw`
     my-8
+    ml-7
   `}
 `;
 

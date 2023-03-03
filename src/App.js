@@ -24,7 +24,9 @@ function App() {
   const [popular, setPopular] = useState([]);
   const [topRated, setTopRated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
+  const [movie, setMovie] = useState(originals[Math.floor(Math.random() * originals.length)]);
 
+  
 
   useEffect(() => {
     // Load Originals
@@ -83,10 +85,20 @@ function App() {
 
 
   }, []);
+
+  // Displaying random movie after each 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setMovie(originals[Math.floor(Math.random() * originals.length)]);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [originals]);
+
   return (
     <>
       <Header />
-      <Hero movie={originals[Math.floor(Math.random() * originals.length)]} />
+      <Hero movie={originals && movie} />
       <Movies title='Netflix originals' movies={originals} />
       <Movies title='Netflix Trending' movies={trending} />
       <Movies title='Netflix Now Playing' movies={nowPlaying} />
